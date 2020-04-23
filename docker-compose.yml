@@ -1,0 +1,21 @@
+version: "3.6"
+services:
+  charles_proxy:
+    build:
+      context: ${BUILD_CONTEXT}
+      dockerfile: Dockerfile
+    image: charles_proxy:${VERSION}
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "100"
+    env_file:
+      - .env
+    container_name: charles-proxy
+    stdin_open: true
+    tty: true
+    privileged: true
+    network_mode: 'host'
+    pid: 'host'
+    entrypoint: charles -headless -config com.xk72.charles.config
