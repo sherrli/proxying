@@ -28,5 +28,5 @@ RUN wget -q -O - https://www.charlesproxy.com/packages/apt/PublicKey | apt-key a
   && apt-get update \
   && apt-get install charles-proxy
 
-COPY charles /home/ubuntu
+COPY . /home/ubuntu
 WORKDIR /home/ubuntu
