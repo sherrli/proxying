@@ -4,12 +4,14 @@ services:
     build:
       context: ${BUILD_CONTEXT}
       dockerfile: Dockerfile
+      args:
+        BASE_IMG: ${BASE_IMG}
     image: charles_proxy:${VERSION}
     logging:
       driver: "json-file"
       options:
         max-size: "10m"
-        max-file: "100"
+        max-file: "10"
     env_file:
       - .env
     container_name: charles-proxy
