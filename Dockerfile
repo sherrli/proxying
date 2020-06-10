@@ -10,7 +10,10 @@ RUN apt-get update -qq \
   && apt-get install -y wget \
   && apt-get install -y xvfb \
   && ln -s /usr/bin/python3 python \
-  && pip3 install --upgrade pip
+  && pip3 install --upgrade pip \
+  && pip3 install --no-cache-dir requests \
+  selenium \
+  xvfbwrapper
 
 RUN apt-get install -y firefox
 ENV GECKODRIVER_VERSION 0.25.0
